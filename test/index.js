@@ -6,5 +6,5 @@ import buildFetch from '../src';
 chai.use(sinonChai);
 
 describe('fetch-push', () => {
-  it.skip('will be build', () => {});
+  it.skip('will be built', () => {});
 });
