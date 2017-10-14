@@ -1,0 +1,63 @@
+{
+  "name": "fetch-push",
+  "version": "0.0.1-alpha.1",
+  "description": "A wrapper around fetch() to improve the performance of isomorphic websites by pushing API responses.",
+  "main": "lib/index.js",
+  "browser": "./lib/browser.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive --reporter spec",
+    "test:watch": "npm test -- --watch",
+    "test:examples": "node examples/",
+    "cover": "cross-env BABEL_ENV=commonjs istanbul cover _mocha -- --compilers js:babel-register --recursive",
+    "lint": "eslint src test",
+    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "prepublishOnly": "npm run clean && npm run lint && npm run test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BernzSed/fetch-push.git"
+  },
+  "keywords": [
+    "http2",
+    "http/2",
+    "push",
+    "push_promise",
+    "isomorphic",
+    "fetch"
+  ],
+  "author": "Bernie Stern <bernzs@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BernzSed/fetch-push/issues"
+  },
+  "homepage": "https://github.com/BernzSed/fetch-push#readme",
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "dependencies": {
+    "axios-push": "^0.0.1",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.1.2",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "rimraf": "^2.6.2",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.14.0"
+  }
+}

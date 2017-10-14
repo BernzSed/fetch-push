@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "env": {
+    "mocha": true,
+    "node": true
+  },
+  "globals": {
+    "expect": true
+  },
+  "rules": {
+    "padded-blocks": 0,
+    "no-use-before-define": [2, "nofunc"],
+    "no-unused-expressions": 0,
+    "no-else-return": 0,
+    "no-unused-vars": [
+      1,
+      { "args": "none" }
+    ],
+    "comma-dangle": ["error", "never"],
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+    "no-multiple-empty-lines": 0
+  }
+}
