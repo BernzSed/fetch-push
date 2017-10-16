@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "axios-push": "^0.0.1",
-    "whatwg-fetch": "^2.0.3"
+    "node-fetch": "^1.7.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
