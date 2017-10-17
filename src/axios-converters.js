@@ -2,9 +2,9 @@ import { Response } from 'node-fetch';
 
 function getAxiosRequestHeaders(request) {
   const headersObj = {};
-  for (const [name, value] of request.headers) { // eslint-disable-line no-restricted-syntax
-    headersObj[name] = value;
-  }
+  request.headers.forEach((value, key) => {
+    headersObj[key] = value;
+  });
   // TODO request.cache
   return headersObj;
 }
