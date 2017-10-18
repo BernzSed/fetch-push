@@ -30,8 +30,9 @@ export function convertToAxiosRequest(request) {
 }
 
 export function convertFromAxiosResponse(response) {
-  // TODO eventually want to give devs the ability to chain requests
-  // on the server-side, so will need to return data. Not sure if this will be
-  // before or after I get rid of the axios-push dependency.
-  return new Response();
+  return new Response(response.data, {
+    status: response.status,
+    headers: response.headers,
+    url: response.config.url // TODO not sure if this includes baseUrl
+  });
 }

@@ -15,16 +15,18 @@ export default function buildFetch(pageResponse) {
 
   return function fetchPush(input, init) {
     const request = new Request(input, init);
+
+    let chainedRequest = false;
+
     const axiosRequestConfig = convertToAxiosRequest(request);
+    axiosRequestConfig.chainedRequest = () => chainedRequest;
     const axiosPromise = axios.request(axiosRequestConfig);
 
     const responsePromise = axiosPromise.then(convertFromAxiosResponse);
     responsePromise.chain = function chain(...args) {
-      // TODO if this method is called, then don't return an empty promise;
-      // hold off on sending the push response so that another push_promise
-      // can be sent.
+      chainedRequest = true;
       return responsePromise.then(...args);
     };
-    return responsePromise;
+    return responsePromise.then(convertFromAxiosResponse);
   };
 }
