@@ -5,7 +5,7 @@ import buildFetch from '../src/browser';
 
 chai.use(sinonChai);
 
-describe('buildFetch', () => {
+describe('buildFetch for the browser', () => {
 
   afterEach(() => {
     delete global.window;
